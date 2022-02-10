@@ -124,7 +124,9 @@ std::vector<double> mergeSortedLists(const std::vector<std::vector<double>>& sor
 
   for(auto vec : sortedVecs) {
     //std::cout<<vec.front()<<" ";
-    heap.push(std::make_pair(vec.front(), vec));
+    if(!vec.empty()) {
+      heap.push(std::make_pair(vec.front(), vec));
+    }
     //vec.erase(vec.begin());
     //std::cout<<vec.front()<<std::endl;
   }
