@@ -1,0 +1,3 @@
+A. With a space complexity, I would use a binary search algorithm in order to achieve a O(logn ) look up time. I would place the binarySearch algorithm in hasPErmission. I would not change constructor implementation
+
+B. With no space constraints, I would use a map, I would use each uniqie ID as a key that maps to a boolean value of yes or no. This would allow for ann O(1) or constant look up time. I would start hashing in the constructor. I would search the hasmap in the hasPErmission function. 

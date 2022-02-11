@@ -11,7 +11,12 @@
 /*
  * Add your key ideas to this comment.
  * How did you approach the problem?
+I approached this problem by using a map to set each location for both the recipe and ingredient locations.
+Once I had each character map I began to compare if the ingredient(bucket) map contained the enough of each char needed to fulfill the recipe. I then use division to determine how many copies of the recipe i can create.
  * Why does your code work?
+ My code works because it efficeiently maps the characters in order to quickly determine if a valid amount of characters is availaible. 
+
+
  *
  */
 int countLegoHouses(std::string recipe, std::string bucket) {
@@ -58,7 +63,9 @@ return min;
 /*
  * Add your key ideas to this comment.
  * How did you approach the problem?
+ In this problem I decided to sort each word and then use the sorted word as a key. This allowed me to map all words with the same letters to a specific index. I placed all matching strings into a mapped vector. Once I completed this, I searched for the vector with the most words and rerturned it.
  * Why does your code work?
+ My code works because I effieciently map all words in order to find the largest group of anagrams.
  *
  */
 std::vector<std::string> findLargestAnagroup(const std::vector<std::string>& words) {
@@ -86,70 +93,38 @@ std::vector<std::string> findLargestAnagroup(const std::vector<std::string>& wor
 /*
  * Add your key ideas to this comment.
  * How did you approach the problem?
+ In this problem I decided to use pairing in order to keep track of the specific number I was coparing and the rest of the digits in a given vector. I also created a min heap. I used the digit within each pair to sort the heap. Once I return a pair from the heap. I place it in the new sorted vector and then proceded to push the next eleemnt in the sub vector or not depending if the vector is empty or not.
  
  * Why does your code work?
+
+ My code works because it uses a heap to quickly find the complete minimum when comparing the minimum value of each sub vector. 
  *
  */
-
- //std::priority_queue<double, std::vector<double>, std::greater<double>> heap;
-  
-  //int size = sortedVecs.size();
-  //std::cout<<size<<std::endl;
-// while(size > 0) {
-//   for(auto vec : sortedVecs) {
-//     //std::cout<<"here"<<std::endl;
-//     if(!vec.empty()) {
-//       heap.push(vec.front());
-//       vec.erase(vec.begin());
-      
-//       if(heap.size() == sortedVecs.size()) {
-//         sortedValues.push_back(heap.top());
-//         heap.pop();
-//       }
-      
-//       if(vec.empty()) {
-//         size--;
-//       }
-//     }
-    
-//   }
-// }
 std::vector<double> mergeSortedLists(const std::vector<std::vector<double>>& sortedVecs) {
-  //throw std::logic_error("not implemented");
-  //std::cout<<"here";
   typedef std::pair<double, std::vector<double>> pa;
   std::priority_queue<pa, std::vector<pa>, std::greater<pa>> heap;
   std::vector<double> sortedValues; 
 
 
   for(auto vec : sortedVecs) {
-    //std::cout<<vec.front()<<" ";
     if(!vec.empty()) {
       heap.push(std::make_pair(vec.front(), vec));
     }
-    //vec.erase(vec.begin());
-    //std::cout<<vec.front()<<std::endl;
   }
   
   while(!heap.empty()) {
-
-  //std::vector<double> removed = heap.top().second;
-  sortedValues.push_back(heap.top().first); //insert minimum to vector
-  pa removed = heap.top(); // temp to store the head pair of heap
-  if(removed.second.size() > 1) {
-    removed.second.erase(removed.second.begin());
-    heap.pop();
-    heap.push(std::make_pair(removed.second.front(), removed.second));
-  }
-  else {
-    heap.pop();
-  }
-  //heap.push(std::make_pair(removed.front(), removed));
-  }
-
+    sortedValues.push_back(heap.top().first); //insert minimum to vector
+    pa removed = heap.top(); // temp to store the head pair of the heap
+    if(removed.second.size() > 1) { // remove first element of removed vector if there is at least 2 elements else just pop 
+      removed.second.erase(removed.second.begin());
+      heap.pop();
+      heap.push(std::make_pair(removed.second.front(), removed.second));
+    }
+    else {
+      heap.pop();
+    }
   
-
-  std::vector<double> l;
+  }
   return sortedValues;
 
 }

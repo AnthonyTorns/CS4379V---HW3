@@ -1,3 +1,3 @@
 A. If I solved this problem, straight forward, I would sort each value by the max and min values of each vector. Since we know each vector is sorted we can use the range of each vector to help determine the ordering without having to compare each element. The only time we would proceed to compare each value in both compared vectors would be if the ranges over lapped. In this case we would place all values in each vector and then compare. In this case the fastest we could sort would m log(n) where n is the number of vecotrs and m is the number of elements
 
-B. 
+B. The worst case time complexity for this scenario is O( N * M). In this solution, we are going to search each vector M times(M pointers). But each pointer will traverse n elments within ech vector.
