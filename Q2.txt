@@ -1,0 +1,8 @@
+A. Inputs {34 , 52, 61, 48}
+   Outputs {1, 1, 0, 0}
+B. A straightforward approach of O(N^2)would involve using two nested loops and comparing each day with the following days until a greater temperature was found
+C.In my approach I used a for loop to check each temperature for each day. I then also used awhile loop to check for empty an empty stack(monotonic) as well as if a greater temp has been found. Although I use two loops my solution is O(N) because the while loop will only run once for each iteration due to the use of a monotonic stack
+
+D. If I were looking for colder temperatures I would change the second condition in my while loop to  temperatures[i] < temperatures[mono.top()]
+
+E. Pop will be called at max once, or constant time. While push will be called at most O(N) times or linearly. Worst case space complexity is O(N), worst case time complexity is also O(N)

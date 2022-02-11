@@ -69,7 +69,6 @@ return min;
  *
  */
 std::vector<std::string> findLargestAnagroup(const std::vector<std::string>& words) {
-  //throw std::logic_error("not implemented");  
   std::unordered_map <std::string, std::vector<std::string> > wordMap;
   for(auto word : words) {
     std::string sortedWord = word;
